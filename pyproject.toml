@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rexctl"
+version = "0.1.0"
+description = "Agent-oriented command line client for the Rex terminal control API"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+dependencies = []
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Terminals",
+]
+
+[project.scripts]
+rexctl = "rexctl.cli:main"
+
+[dependency-groups]
+dev = ["mypy", "pytest", "pytest-timeout", "ruff"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["rexctl"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "live: tests against a real Rex server that create, type into and close throwaway sessions (needs --live HOST)",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+src = [".", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B"]
+
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["rexctl"]

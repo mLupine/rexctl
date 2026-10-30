@@ -1,0 +1,563 @@
+{
+ "api_revision": 7,
+ "block_types": [
+  {
+   "creator": "com.superlogical.onboarding",
+   "methods": [
+    {
+     "invoke": {
+      "method": "com.superlogical.onboarding.set_step"
+     },
+     "name": "set_step"
+    },
+    {
+     "invoke": {
+      "method": "com.superlogical.onboarding.state"
+     },
+     "name": "state"
+    }
+   ]
+  },
+  {
+   "creator": "com.superlogical.terminal",
+   "methods": [
+    {
+     "invoke": {
+      "method": "com.superlogical.terminal.blob_read"
+     },
+     "name": "blob_read"
+    },
+    {
+     "invoke": {
+      "method": "com.superlogical.terminal.clear"
+     },
+     "name": "clear"
+    },
+    {
+     "invoke": {
+      "method": "com.superlogical.terminal.clipboard_read"
+     },
+     "name": "clipboard_read"
+    },
+    {
+     "invoke": {
+      "method": "com.superlogical.terminal.format"
+     },
+     "name": "format"
+    },
+    {
+     "invoke": {
+      "method": "com.superlogical.terminal.input_mode"
+     },
+     "name": "input_mode"
+    },
+    {
+     "invoke": {
+      "method": "com.superlogical.terminal.list_dir"
+     },
+     "name": "list_dir"
+    },
+    {
+     "invoke": {
+      "method": "com.superlogical.terminal.modes"
+     },
+     "name": "modes"
+    },
+    {
+     "invoke": {
+      "method": "com.superlogical.terminal.process"
+     },
+     "name": "process"
+    },
+    {
+     "invoke": {
+      "method": "com.superlogical.terminal.program_status"
+     },
+     "name": "program_status"
+    },
+    {
+     "invoke": {
+      "method": "com.superlogical.terminal.pwd"
+     },
+     "name": "pwd"
+    },
+    {
+     "invoke": {
+      "method": "com.superlogical.terminal.reset"
+     },
+     "name": "reset"
+    },
+    {
+     "invoke": {
+      "method": "com.superlogical.terminal.resize"
+     },
+     "name": "resize"
+    },
+    {
+     "invoke": {
+      "method": "com.superlogical.terminal.set_theme"
+     },
+     "name": "set_theme"
+    },
+    {
+     "invoke": {
+      "method": "com.superlogical.terminal.size"
+     },
+     "name": "size"
+    },
+    {
+     "invoke": {
+      "method": "com.superlogical.terminal.title"
+     },
+     "name": "title"
+    },
+    {
+     "invoke": {
+      "method": "com.superlogical.terminal.write"
+     },
+     "name": "write"
+    }
+   ]
+  }
+ ],
+ "methods": [
+  {
+   "invoke": {
+    "method": "block.close"
+   },
+   "name": "block.close"
+  },
+  {
+   "invoke": {
+    "method": "block.event"
+   },
+   "name": "block.event"
+  },
+  {
+   "invoke": {
+    "method": "block.method"
+   },
+   "name": "block.method"
+  },
+  {
+   "invoke": {
+    "method": "block_creator.list"
+   },
+   "name": "block_creator.list"
+  },
+  {
+   "invoke": {
+    "method": "client.action"
+   },
+   "name": "client.action"
+  },
+  {
+   "invoke": {
+    "method": "client.inspect"
+   },
+   "name": "client.inspect"
+  },
+  {
+   "invoke": {
+    "method": "client.key"
+   },
+   "name": "client.key"
+  },
+  {
+   "invoke": {
+    "method": "client.keymap"
+   },
+   "name": "client.keymap"
+  },
+  {
+   "invoke": {
+    "method": "client.list"
+   },
+   "name": "client.list"
+  },
+  {
+   "invoke": {
+    "method": "client.perform"
+   },
+   "name": "client.perform"
+  },
+  {
+   "invoke": {
+    "method": "client.reply"
+   },
+   "name": "client.reply"
+  },
+  {
+   "invoke": {
+    "method": "client.set_label"
+   },
+   "name": "client.set_label"
+  },
+  {
+   "invoke": {
+    "method": "client.set_script"
+   },
+   "name": "client.set_script"
+  },
+  {
+   "invoke": {
+    "method": "data.connect"
+   },
+   "name": "data.connect"
+  },
+  {
+   "invoke": {
+    "method": "help.all"
+   },
+   "name": "help.all"
+  },
+  {
+   "invoke": {
+    "method": "hosts.list"
+   },
+   "name": "hosts.list"
+  },
+  {
+   "invoke": {
+    "method": "hosts.put"
+   },
+   "name": "hosts.put"
+  },
+  {
+   "invoke": {
+    "method": "hosts.remove"
+   },
+   "name": "hosts.remove"
+  },
+  {
+   "invoke": {
+    "method": "server.apple.grant_file_access"
+   },
+   "name": "server.apple.grant_file_access"
+  },
+  {
+   "invoke": {
+    "method": "server.apple.privacy_status"
+   },
+   "name": "server.apple.privacy_status"
+  },
+  {
+   "invoke": {
+    "method": "server.config_reload"
+   },
+   "name": "server.config_reload"
+  },
+  {
+   "invoke": {
+    "method": "server.status"
+   },
+   "name": "server.status"
+  },
+  {
+   "invoke": {
+    "method": "server.stop"
+   },
+   "name": "server.stop"
+  },
+  {
+   "invoke": {
+    "method": "server.tailscale.disable"
+   },
+   "name": "server.tailscale.disable"
+  },
+  {
+   "invoke": {
+    "method": "server.tailscale.enable"
+   },
+   "name": "server.tailscale.enable"
+  },
+  {
+   "invoke": {
+    "method": "server.tailscale.login"
+   },
+   "name": "server.tailscale.login"
+  },
+  {
+   "invoke": {
+    "method": "server.tailscale.logout"
+   },
+   "name": "server.tailscale.logout"
+  },
+  {
+   "invoke": {
+    "method": "server.tailscale.rename"
+   },
+   "name": "server.tailscale.rename"
+  },
+  {
+   "invoke": {
+    "method": "server.version"
+   },
+   "name": "server.version"
+  },
+  {
+   "invoke": {
+    "method": "server.whoami"
+   },
+   "name": "server.whoami"
+  },
+  {
+   "invoke": {
+    "method": "session.attach"
+   },
+   "name": "session.attach"
+  },
+  {
+   "invoke": {
+    "method": "session.attach_all"
+   },
+   "name": "session.attach_all"
+  },
+  {
+   "invoke": {
+    "method": "session.bootstrap"
+   },
+   "name": "session.bootstrap"
+  },
+  {
+   "invoke": {
+    "method": "session.close_layer"
+   },
+   "name": "session.close_layer"
+  },
+  {
+   "invoke": {
+    "method": "session.close_window"
+   },
+   "name": "session.close_window"
+  },
+  {
+   "invoke": {
+    "method": "session.create"
+   },
+   "name": "session.create"
+  },
+  {
+   "invoke": {
+    "method": "session.describe_block"
+   },
+   "name": "session.describe_block"
+  },
+  {
+   "invoke": {
+    "method": "session.destroy"
+   },
+   "name": "session.destroy"
+  },
+  {
+   "invoke": {
+    "method": "session.detach"
+   },
+   "name": "session.detach"
+  },
+  {
+   "invoke": {
+    "method": "session.detach_block"
+   },
+   "name": "session.detach_block"
+  },
+  {
+   "invoke": {
+    "method": "session.disown_block"
+   },
+   "name": "session.disown_block"
+  },
+  {
+   "invoke": {
+    "method": "session.float_block"
+   },
+   "name": "session.float_block"
+  },
+  {
+   "invoke": {
+    "method": "session.focus_block"
+   },
+   "name": "session.focus_block"
+  },
+  {
+   "invoke": {
+    "method": "session.focus_direction"
+   },
+   "name": "session.focus_direction"
+  },
+  {
+   "invoke": {
+    "method": "session.focus_next_pane"
+   },
+   "name": "session.focus_next_pane"
+  },
+  {
+   "invoke": {
+    "method": "session.focus_next_window"
+   },
+   "name": "session.focus_next_window"
+  },
+  {
+   "invoke": {
+    "method": "session.focus_previous_pane"
+   },
+   "name": "session.focus_previous_pane"
+  },
+  {
+   "invoke": {
+    "method": "session.focus_previous_window"
+   },
+   "name": "session.focus_previous_window"
+  },
+  {
+   "invoke": {
+    "method": "session.focus_window"
+   },
+   "name": "session.focus_window"
+  },
+  {
+   "invoke": {
+    "method": "session.help"
+   },
+   "name": "session.help"
+  },
+  {
+   "invoke": {
+    "method": "session.list"
+   },
+   "name": "session.list"
+  },
+  {
+   "invoke": {
+    "method": "session.list_blocks"
+   },
+   "name": "session.list_blocks"
+  },
+  {
+   "invoke": {
+    "method": "session.list_clients"
+   },
+   "name": "session.list_clients"
+  },
+  {
+   "invoke": {
+    "method": "session.lower_layer"
+   },
+   "name": "session.lower_layer"
+  },
+  {
+   "invoke": {
+    "method": "session.move"
+   },
+   "name": "session.move"
+  },
+  {
+   "invoke": {
+    "method": "session.move_block"
+   },
+   "name": "session.move_block"
+  },
+  {
+   "invoke": {
+    "method": "session.move_window"
+   },
+   "name": "session.move_window"
+  },
+  {
+   "invoke": {
+    "method": "session.new_block"
+   },
+   "name": "session.new_block"
+  },
+  {
+   "invoke": {
+    "method": "session.new_layer"
+   },
+   "name": "session.new_layer"
+  },
+  {
+   "invoke": {
+    "method": "session.new_split"
+   },
+   "name": "session.new_split"
+  },
+  {
+   "invoke": {
+    "method": "session.new_window"
+   },
+   "name": "session.new_window"
+  },
+  {
+   "invoke": {
+    "method": "session.own_block"
+   },
+   "name": "session.own_block"
+  },
+  {
+   "invoke": {
+    "method": "session.raise_layer"
+   },
+   "name": "session.raise_layer"
+  },
+  {
+   "invoke": {
+    "method": "session.resize_layer"
+   },
+   "name": "session.resize_layer"
+  },
+  {
+   "invoke": {
+    "method": "session.resize_pane"
+   },
+   "name": "session.resize_pane"
+  },
+  {
+   "invoke": {
+    "method": "session.set_block_label"
+   },
+   "name": "session.set_block_label"
+  },
+  {
+   "invoke": {
+    "method": "session.set_label"
+   },
+   "name": "session.set_label"
+  },
+  {
+   "invoke": {
+    "method": "session.set_window_label"
+   },
+   "name": "session.set_window_label"
+  },
+  {
+   "invoke": {
+    "method": "session.swap_blocks"
+   },
+   "name": "session.swap_blocks"
+  },
+  {
+   "invoke": {
+    "method": "session.view"
+   },
+   "name": "session.view"
+  },
+  {
+   "invoke": {
+    "method": "session.zoom_block"
+   },
+   "name": "session.zoom_block"
+  },
+  {
+   "invoke": {
+    "method": "target.complete"
+   },
+   "name": "target.complete"
+  },
+  {
+   "invoke": {
+    "method": "target.resolve"
+   },
+   "name": "target.resolve"
+  }
+ ]
+}
