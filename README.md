@@ -21,6 +21,10 @@ pipx install git+https://github.com/mLupine/rexctl
 
 From a checkout, `python -m rexctl` works without installing anything.
 
+Each [release](https://github.com/mLupine/rexctl/releases) also carries `rexctl-<version>.pyz`, a single-file zipapp
+that runs anywhere Python 3.11 or newer is installed: download it, `chmod +x` it and put it on your `PATH`.
+`SHA256SUMS` next to it lists the checksums of every file in the release.
+
 ## Configure hosts
 
 rexctl does not know any servers until you name them. Put labels in `~/.config/rexctl/hosts.json`

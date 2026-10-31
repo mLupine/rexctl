@@ -30,3 +30,20 @@ destroy them when they finish, even when a test fails.
 
 `fixtures/help-methods.json` is the list of methods the coverage test checks against. When the server's API revision
 changes, regenerate it from `GET /api/help` (names and block methods only) and update `COVERAGE.md`.
+
+## Releasing
+
+The version lives only in `rexctl/__init__.py`. To release:
+
+1. Set `__version__` and rename the `## Unreleased` heading in `CHANGELOG.md` to that version. Commit and push.
+2. Tag the commit and push the tag:
+
+   ```sh
+   git tag v0.1.0
+   git push origin v0.1.0
+   ```
+
+`.github/workflows/release.yml` then runs the full CI, checks that the tag matches `__version__`, builds the wheel, the
+sdist and the `.pyz` zipapp, smoke-tests the wheel and the zipapp, and publishes a GitHub release with those files,
+`SHA256SUMS`, and the changelog section as its notes. A tag that does not match `__version__`, or a version with no
+changelog section, fails the run before anything is published.

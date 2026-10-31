@@ -25,3 +25,4 @@ First public version.
 - Unexpected errors exit with code 1 and a traceback on stderr instead of a raw crash.
 - No built-in hosts. Labels come from `$REXCTL_HOSTS` or `$XDG_CONFIG_HOME/rexctl/hosts.json`.
 - Licensed under GPL-3.0-or-later.
+- Tagged versions publish a GitHub release with the wheel, the sdist and a single-file `.pyz` zipapp.

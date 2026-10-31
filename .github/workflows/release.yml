@@ -1,0 +1,43 @@
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+
+  release:
+    needs: ci
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: Check the tag matches the package version
+        run: |
+          version=$(sed -n 's/^__version__ = "\(.*\)"$/\1/p' rexctl/__init__.py)
+          test "v$version" = "$GITHUB_REF_NAME" || { echo "tag $GITHUB_REF_NAME, package $version"; exit 1; }
+          echo "VERSION=$version" >> "$GITHUB_ENV"
+      - name: Release notes from CHANGELOG.md
+        run: |
+          awk -v v="## $VERSION" '$0 == v {on=1; next} /^## / {on=0} on' CHANGELOG.md > notes.md
+          test -s notes.md || { echo "CHANGELOG.md has no '## $VERSION' section"; exit 1; }
+      - name: Build
+        run: |
+          uv build
+          mkdir zipapp && cp -r rexctl zipapp/
+          python3 -m zipapp zipapp -m rexctl.cli:main -p "/usr/bin/env python3" -c -o "dist/rexctl-$VERSION.pyz"
+          (cd dist && sha256sum * > SHA256SUMS)
+      - name: Smoke test
+        run: |
+          uv run --no-project --with dist/*.whl rexctl --help > /dev/null
+          uv run --no-project --python 3.11 python "dist/rexctl-$VERSION.pyz" --help > /dev/null
+      - run: gh release create "$GITHUB_REF_NAME" dist/* --title "rexctl $VERSION" --notes-file notes.md
